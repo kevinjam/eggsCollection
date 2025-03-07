@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { google } from "googleapis";
-import fs from "fs";
-import path from "path";
+// import fs from "fs";
+// import path from "path";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
@@ -10,8 +10,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     // 🔹 Load Google Service Account Credentials
-    const credentialsPath = path.join(process.cwd(), "service-account.json");
-    const credentials = JSON.parse(fs.readFileSync(credentialsPath, "utf8"));
+    if (!process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON) {
+      throw new Error("Missing Google service account credentials.");
+    }
+
+    console.log("GOOGLE_APPLICATION_CREDENTIALS_JSON", process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
+    // const credentialsPath = path.join(process.cwd(), "service-account.json");
+    const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON || "{}");
+    // const credentials = JSON.parse(fs.readFileSync(credentialsPath, "utf8"));
 
     const auth = new google.auth.GoogleAuth({
       credentials,
