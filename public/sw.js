@@ -1,1 +1,57 @@
-if(!self.define){let e,s={};const a=(a,n)=>(a=new URL(a+".js",n).href,s[a]||new Promise((s=>{if("document"in self){const e=document.createElement("script");e.src=a,e.onload=s,document.head.appendChild(e)}else e=a,importScripts(a),s()})).then((()=>{let e=s[a];if(!e)throw new Error(`Module ${a} didn’t register its module`);return e})));self.define=(n,i)=>{const t=e||("document"in self?document.currentScript.src:"")||location.href;if(s[t])return;let c={};const r=e=>a(e,t),o={module:{uri:t},exports:c,require:r};s[t]=Promise.all(n.map((e=>o[e]||r(e)))).then((e=>(i(...e),c)))}}define(["./workbox-4754cb34"],(function(e){"use strict";importScripts(),self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"/404.html",revision:"0a27a4163254fc8fce870c8cc3a3f94f"},{url:"/_next/app-build-manifest.json",revision:"7ff5e73a16b0d5ab2b41b88851125ba2"},{url:"/_next/dynamic-css-manifest.json",revision:"d751713988987e9331980363e24189ce"},{url:"/_next/static/Bf8CELUiFNhWxY4Us7Lxz/_buildManifest.js",revision:"56313a2fa41efe17a9286c47ac6aacba"},{url:"/_next/static/Bf8CELUiFNhWxY4Us7Lxz/_ssgManifest.js",revision:"b6652df95db52feb4daf4eca35380933"},{url:"/_next/static/chunks/464-2e75a0f5b1c69651.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/4bd1b696-8e51608f0db37689.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/684-2caf7b9ef70a8587.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/app/_not-found/page-cd1726d1b4a7e279.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/app/layout-4cbac0e35e4b4dae.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/app/page-7b550a1468936f9c.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/framework-d626bb57a450c627.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/main-920ea1553caf4e62.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/main-app-8a2a0c2eda2a811f.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/pages/_app-da15c11dea942c36.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/pages/_error-cc3f077a18ea1793.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/chunks/polyfills-42372ed130431b0a.js",revision:"846118c33b2c0e922d7b3a7676f81f6f"},{url:"/_next/static/chunks/webpack-159b0549cc55d90e.js",revision:"Bf8CELUiFNhWxY4Us7Lxz"},{url:"/_next/static/css/90c955b6558d5866.css",revision:"90c955b6558d5866"},{url:"/_next/static/media/569ce4b8f30dc480-s.p.woff2",revision:"ef6cefb32024deac234e82f932a95cbd"},{url:"/_next/static/media/747892c23ea88013-s.woff2",revision:"a0761690ccf4441ace5cec893b82d4ab"},{url:"/_next/static/media/93f479601ee12b01-s.p.woff2",revision:"da83d5f06d825c5ae65b7cca706cb312"},{url:"/_next/static/media/ba015fad6dcf6784-s.woff2",revision:"8ea4f719af3312a055caf09f34c89a77"},{url:"/file.svg",revision:"d09f95206c3fa0bb9bd9fefabfd0ea71"},{url:"/globe.svg",revision:"2aaafa6a49b6563925fe440891e32717"},{url:"/index.html",revision:"67dea3ef1cec83e8ac2da27a661b19dc"},{url:"/manifest.json",revision:"72eb01f959c429ab2c4b4aa8641c01a6"},{url:"/next.svg",revision:"8e061864f388b47f33a1c3780831193e"},{url:"/vercel.svg",revision:"c0af2f507b369b085b35ef4bbe3bcf1e"},{url:"/window.svg",revision:"a2760511c65806022ad20adf74370ff3"}],{ignoreURLParametersMatching:[]}),e.cleanupOutdatedCaches(),e.registerRoute("/",new e.NetworkFirst({cacheName:"start-url",plugins:[{cacheWillUpdate:async({request:e,response:s,event:a,state:n})=>s&&"opaqueredirect"===s.type?new Response(s.body,{status:200,statusText:"OK",headers:s.headers}):s}]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(?:gstatic)\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts-webfonts",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:31536e3})]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(?:googleapis)\.com\/.*/i,new e.StaleWhileRevalidate({cacheName:"google-fonts-stylesheets",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:604800})]}),"GET"),e.registerRoute(/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,new e.StaleWhileRevalidate({cacheName:"static-font-assets",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:604800})]}),"GET"),e.registerRoute(/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,new e.StaleWhileRevalidate({cacheName:"static-image-assets",plugins:[new e.ExpirationPlugin({maxEntries:64,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\/_next\/image\?url=.+$/i,new e.StaleWhileRevalidate({cacheName:"next-image",plugins:[new e.ExpirationPlugin({maxEntries:64,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:mp3|wav|ogg)$/i,new e.CacheFirst({cacheName:"static-audio-assets",plugins:[new e.RangeRequestsPlugin,new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:mp4)$/i,new e.CacheFirst({cacheName:"static-video-assets",plugins:[new e.RangeRequestsPlugin,new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:js)$/i,new e.StaleWhileRevalidate({cacheName:"static-js-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:css|less)$/i,new e.StaleWhileRevalidate({cacheName:"static-style-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\/_next\/data\/.+\/.+\.json$/i,new e.StaleWhileRevalidate({cacheName:"next-data",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:json|xml|csv)$/i,new e.NetworkFirst({cacheName:"static-data-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute((({url:e})=>{if(!(self.origin===e.origin))return!1;const s=e.pathname;return!s.startsWith("/api/auth/")&&!!s.startsWith("/api/")}),new e.NetworkFirst({cacheName:"apis",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:16,maxAgeSeconds:86400})]}),"GET"),e.registerRoute((({url:e})=>{if(!(self.origin===e.origin))return!1;return!e.pathname.startsWith("/api/")}),new e.NetworkFirst({cacheName:"others",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute((({url:e})=>!(self.origin===e.origin)),new e.NetworkFirst({cacheName:"cross-origin",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:3600})]}),"GET")}));
+// public/sw.js
+const CACHE_NAME = "my-pwa-cache-v1";
+const urlsToCache = [
+  "/",                              // Root page
+  "/manifest.json",                 // Manifest
+  "/icon-192x192.png",              // Icons
+  "/icon-512x512.png",
+  "/_next/static/chunks/main-5b1bff77d3c6d17b.js",   // Main JS chunk
+  "/_next/static/chunks/webpack-159b0549cc55d90e.js", // Webpack runtime
+  "/_next/static/chunks/pages/index.js", // Pages Router index (if used)
+  "/_next/static/css/af6b0c4c2bc57d0a.css", // CSS (replace with actual hash)
+];
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Caching resources:", urlsToCache);
+      return cache.addAll(urlsToCache).catch((err) => {
+        console.error("Cache failed:", err);
+      });
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      if (response) {
+        return response; // Serve from cache if available
+      }
+      return fetch(event.request).catch(() => {
+        // Offline fallback for navigation requests
+        if (event.request.mode === "navigate") {
+          return caches.match("/"); // Serve cached root page
+        }
+        return new Response("Offline and no resource cached", {
+          status: 503,
+          statusText: "Service Unavailable",
+        });
+      });
+    })
+  );
+});

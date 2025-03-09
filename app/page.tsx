@@ -1,5 +1,5 @@
+'use client'
 import EggForm from "./components/EggForm";
-
 
 export default function Home() {
   return (
