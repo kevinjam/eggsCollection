@@ -1,7 +1,8 @@
 // public/sw.js
 const CACHE_NAME = "my-pwa-cache-v1";
 const urlsToCache = [
-  "/",                              // Root page
+  "/",    
+  "/dashboard",                          // Root page
   "/manifest.json",                 // Manifest
   "/icon-192x192.png",              // Icons
   "/icon-512x512.png",
@@ -40,7 +41,8 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
-        return response; // Serve from cache if available
+        return response ; // Serve from cache if available
+        // return response || fetch(event.request);
       }
       return fetch(event.request).catch(() => {
         // Offline fallback for navigation requests

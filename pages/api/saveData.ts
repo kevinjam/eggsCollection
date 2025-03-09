@@ -31,10 +31,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const sheets = google.sheets({ version: "v4", auth });
 
     // 🔹 Replace with your actual Google Sheet ID
-    const sheetId = "1FxjXNG2uLFF5uRjfCU-mPKV6OIZhNdq0MmPdvlVbITI";  // Replace with your correct sheet ID
+    const sheetId = process.env.GOOGLE_SHEET_ID;  // Replace with your correct sheet ID
 
     // 🔹 Get data from request body
-    const { date, house, totalEggs, mortality, brokenEggs, chickens, food } = req.body;
+    const { date, house, totalEggs, mortality, brokenEggs, chickens, food, user } = req.body;
 
     // 🔹 Get the current number of rows in the sheet
     const getRowsResponse = await sheets.spreadsheets.values.get({
@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       range: `Sheet1!A${lastRow}:G${lastRow}`,  // Dynamically calculated range
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[date, house, totalEggs, mortality, brokenEggs, chickens, food]],
+        values: [[date, house, totalEggs, mortality, brokenEggs, chickens, food, user]],
       },
     });
 
