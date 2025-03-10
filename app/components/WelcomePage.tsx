@@ -11,11 +11,11 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -24,7 +24,7 @@ const LoginPage = () => {
       router.push("/EggForm");
     } catch (err) {
         console.error(err);
-      setError("Failed to log in. Check your credentials.",err.message);
+    //   setError("Failed to log in. Check your credentials.");
       setLoading(false);
     }
   };
@@ -39,7 +39,7 @@ const LoginPage = () => {
         className="absolute inset-0 w-full h-full" 
       /> */}
       <div className="relative z-10 bg-white p-6 rounded-xl shadow-lg w-80 sm:w-96">
-        <h2 className="text-2xl font-bold text-gray-900 text-center mb-4">Let's Get Started</h2>
+        <h2 className="text-2xl font-bold text-gray-900 text-center mb-4">Let&apos;s Get Started</h2>
         <p className="text-sm text-gray-600 text-center mb-6">Discover jobs and build your dream career.</p>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -69,7 +69,7 @@ const LoginPage = () => {
           </button>
         </form>
         <p className="text-sm text-gray-600 text-center mt-4">
-        To install this app on iOS, open in Safari and tap the Share icon > "Add to Home Screen".
+        To install this app on iOS, open in Safari and tap the Share icon `{'>'} &quot;Add to Home Screen&quot;.
           {/* Don't have an account? <a href="#" className="text-green-500">Create One Now</a> */}
         </p>
       </div>

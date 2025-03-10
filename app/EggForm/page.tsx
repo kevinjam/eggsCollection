@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { auth } from "../../pages/api/firebase"; // Ensure correct import path
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 import Toastify from 'toastify-js'
-// import "toastify-js/toastify.css";
 import "toastify-js/src/toastify.css"
 const Dashboard = () => {
     const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ const Dashboard = () => {
         user:""
       });
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -46,9 +45,8 @@ const Dashboard = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    console.log("Submitting:", formData); // Debug log to check final data
     try {
         const response = await axios.post("/api/saveData", formData);
            // Show toast notification on success
@@ -67,7 +65,7 @@ const Dashboard = () => {
         console.error("Error saving data:", error);
         // Show error toast notification
         Toastify({
-          text: error.response?.data?.error || "Failed to save data!",
+          text: (error as any).response?.data?.error || "Failed to save data!",
           duration: 3000,
           close: true,
           gravity: "top",
